@@ -24,6 +24,11 @@
     "info": "node node_modules/@dcloudio/vue-cli-plugin-uni/commands/info.js",
     "lint": "vue-cli-service lint"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
   "dependencies": {
     "@dcloudio/uni-app-plus": "^2.0.0-alpha-26420200309006",
     "@dcloudio/uni-h5": "^2.0.0-alpha-26420200309006",
@@ -70,6 +75,8 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "eslint-plugin-vue": "^6.2.2",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.0",
     "mini-types": "*",
     "miniprogram-api-typings": "*",
     "postcss-comment": "^2.0.0",
