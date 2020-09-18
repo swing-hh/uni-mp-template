@@ -26,7 +26,6 @@
   "dependencies": {
     "@dcloudio/uni-app-plus": "^2.0.0-alpha-26420200309006",
     "@dcloudio/uni-h5": "^2.0.0-alpha-26420200309006",
-    "@dcloudio/uni-helper-json": "*",
     "@dcloudio/uni-mp-alipay": "^2.0.0-alpha-26420200309006",
     "@dcloudio/uni-mp-baidu": "^2.0.0-alpha-26420200309006",
     "@dcloudio/uni-mp-qq": "^2.0.0-alpha-26420200309006",
@@ -49,6 +48,7 @@
     "@babel/plugin-syntax-typescript": "^7.2.0",
     "@dcloudio/types": "*",
     "@dcloudio/uni-cli-shared": "^2.0.0-alpha-26420200309006",
+    "@dcloudio/uni-helper-json": "^1.0.6",
     "@dcloudio/uni-migration": "^2.0.0-alpha-26420200309006",
     "@dcloudio/uni-template-compiler": "^2.0.0-alpha-26420200309006",
     "@dcloudio/vue-cli-plugin-hbuilderx": "^2.0.0-alpha-26420200309006",

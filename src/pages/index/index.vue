@@ -1,14 +1,17 @@
 <template>
 	<view class="content">
-        <image class="logo" src="../../static/logo.png"></image>
+		<image class="logo" src="../../static/logo.png"></image>
 		<view>
-            <text class="title">{{title}}</text>
-        </view>
+			<text class="title">{{title}}</text>
+		</view>
+		<scroll-view scroll-x="" scroll-left="">
+			<image src="" mode="" data-a="1" data-name="lala"/>
+		</scroll-view>
 	</view>
 </template>
 
 <script lang="ts">
-    import Vue from 'vue';
+	import Vue from 'vue';
 	export default Vue.extend({
 		data() {
 			return {
@@ -16,7 +19,7 @@
 			}
 		},
 		onLoad() {
-
+			
 		},
 		methods: {
 
