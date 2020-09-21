@@ -41,6 +41,7 @@
     "@dcloudio/vue-cli-plugin-uni": "^2.0.0-alpha-26420200309006",
     "core-js": "^3.6.5",
     "flyio": "^0.6.2",
+    "less-loader": "^7.0.1",
     "node-sass": "^4.14.1",
     "regenerator-runtime": "^0.12.1",
     "sass": "^1.26.11",
@@ -51,7 +52,7 @@
     "vuex": "^3.0.1"
   },
   "devDependencies": {
-    "@babel/plugin-syntax-typescript": "^7.2.0",
+    "@babel/plugin-syntax-typescript": "^7.7.4",
     "@dcloudio/types": "*",
     "@dcloudio/uni-cli-shared": "^2.0.0-alpha-26420200309006",
     "@dcloudio/uni-helper-json": "^1.0.6",
@@ -76,6 +77,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "eslint-plugin-vue": "^6.2.2",
     "husky": "^4.3.0",
+    "less": "^3.12.2",
     "lint-staged": "^10.4.0",
     "mini-types": "*",
     "miniprogram-api-typings": "*",

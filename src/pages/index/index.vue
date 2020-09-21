@@ -1,53 +1,38 @@
 <template>
   <view class="content">
-    <image class="logo" src="../../static/logo.png"></image>
+    <image class="logo" :src="'../../static/logo.png'"></image>
     <view>
-      <text class="title">{{ title }}</text>
+      <view v-for="(title, key) in titles" :key="key" class="title">{{ title }}</view>
     </view>
-    <scroll-view scroll-x="" scroll-left="">
-      <image src="" mode="" data-a="1" data-name="lala"/>
-    </scroll-view>
   </view>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-export default Vue.extend({
-  data () {
-    return {
-      title: 'Hello'
-    }
-  },
+import { Vue, Component } from 'vue-property-decorator'
+
+@Component({})
+
+export default class Home extends Vue {
+  titles: string[] = ['title1', 'title2'];
+
   onLoad () {
-
-  },
-  methods: {
-
+    console.log('')
   }
-})
+}
 </script>
 
-<style>
-	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin: 200rpx auto 50rpx auto;
-	}
-
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
-
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
-	}
+<style type="text/less" lang="less" scoped>
+.content {
+  text-align: center;
+  height: 400upx;
+  .logo{
+    height: 200upx;
+    width: 200upx;
+    margin-top: 200upx;
+  }
+  .title {
+    font-size: 36upx;
+    color: #8f8f94;
+  }
+}
 </style>
