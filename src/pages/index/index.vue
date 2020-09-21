@@ -1,6 +1,7 @@
 <template>
   <view class="content">
     <image class="logo" :src="'../../static/logo.png'"></image>
+    <button type="default">页面主操作 Normal</button>
     <view>
       <view v-for="(title, key) in titles" :key="key" class="title">{{ title }}</view>
     </view>
@@ -16,12 +17,12 @@ export default class Home extends Vue {
   titles: string[] = ['title1', 'title2'];
 
   onLoad () {
-    console.log('')
+    console.log('111')
   }
 }
 </script>
 
-<style type="text/less" lang="less" scoped>
+<style type="text/scss" lang="scss" scoped>
 .content {
   text-align: center;
   height: 400upx;
