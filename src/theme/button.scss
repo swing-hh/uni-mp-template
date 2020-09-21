@@ -1,0 +1,19 @@
+// 按钮色系
+button[type=primary] {
+  background-color: $xz-color-primary;
+  color: $xz-text-color-inverse;
+}
+.button-hover[type=primary] {
+  background-color: $xz-color-primary;
+}
+button[type=error] {
+  background-color: $xz-color-error;
+  color: $xz-text-color-inverse;
+}
+button[type=default] {
+  background-color: $xz-color-default;
+  color: $xz-text-color-grey;
+}
+.button-hover{
+  opacity: 0.8;
+}

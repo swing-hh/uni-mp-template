@@ -15,6 +15,8 @@ export default Vue.extend({
 })
 </script>
 
-<style>
-  /*每个页面公共css */
+<style type="text/scss" lang="scss">
+/*每个页面公共css */
+@import './theme/base.scss';
+@import './theme/button.scss';
 </style>
