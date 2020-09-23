@@ -15,7 +15,7 @@ import { Vue, Component } from 'vue-property-decorator'
 
 @Component({})
 
-export default class Home extends Vue {
+export default class Index extends Vue {
   titles: string[] = ['title1', 'title2'];
   $req: any;
   $api: any;
