@@ -17,9 +17,15 @@ import { Vue, Component } from 'vue-property-decorator'
 
 export default class Home extends Vue {
   titles: string[] = ['title1', 'title2'];
+  $req: any;
+  $api: any;
 
-  onLoad (options: any) {
-
+  async onLoad (options: any) {
+    const data: any = await this.$req.get('https://yyrd-docker.suanshubang.com/handwrite/course/home', {})
+    console.log(data)
+    const data1: any = await this.$req.post('https://yyrd-docker.suanshubang.com' + this.$api.common.switch, {})
+    console.log(data1)
+    console.log(111)
   }
 }
 </script>
