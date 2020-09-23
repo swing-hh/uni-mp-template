@@ -23,7 +23,7 @@ export default class Index extends Vue {
   async onLoad (options: any) {
     const data: any = await this.$req.get('https://yyrd-docker.suanshubang.com/handwrite/course/home', {})
     console.log(data)
-    const data1: any = await this.$req.post('https://yyrd-docker.suanshubang.com' + this.$api.common.switch, {})
+    const data1: any = await this.$req.post(this.$api.common.switch, {})
     console.log(data1)
     console.log(111)
   }

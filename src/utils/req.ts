@@ -6,6 +6,8 @@
  *     const data = await this.$req.post('XX请求地址XX', {})
  */
 
+import BaseUrl from '../config/baseUrl'
+
 class Req {
   async get(url: string, parame: any) {
     return await this.req('GET', url, parame)
@@ -16,6 +18,8 @@ class Req {
   }
 
   req(method: any, url: string, parame: any) {
+    if (url.indexOf('http') < -1) url = BaseUrl.xzDomain + url
+
     return new Promise((resolve, reject) => {
       uni.request({
         url: url,
