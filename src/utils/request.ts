@@ -19,7 +19,10 @@ class Request {
       url: this.url,
       method: method,
       data: this.parame,
-      timeout: 30000
+      timeout: 30000,
+      success() {
+        
+      }
     })
   }
 }
