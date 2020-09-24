@@ -17,8 +17,8 @@ import { Vue, Component } from 'vue-property-decorator'
 
 export default class Index extends Vue {
   titles: string[] = ['title1', 'title2'];
-  $req: any;
-  $api: any;
+  $req: any
+  $api: any
 
   async onLoad (options: any) {
     const data: any = await this.$req.get('https://yyrd-docker.suanshubang.com/handwrite/course/home', {})
