@@ -14,13 +14,12 @@
 import { Vue, Component } from 'vue-property-decorator'
 
 @Component({})
-
 export default class Index extends Vue {
-  titles: string[] = ['title1', 'title2'];
+  titles: string[] = ['title1', 'title2']
   $req: any
   $api: any
 
-  async onLoad (options: any) {
+  async onLoad(options: any) {
     const data: any = await this.$req.get('https://yyrd-docker.suanshubang.com/handwrite/course/home', {})
     console.log(data)
     const data1: any = await this.$req.post(this.$api.common.switch, {})
@@ -35,11 +34,11 @@ export default class Index extends Vue {
   text-align: center;
   height: 400upx;
   bottom: 100upx;
-  button{
+  button {
     width: 500upx;
     margin-bottom: 50upx;
   }
-  .logo{
+  .logo {
     height: 200upx;
     width: 200upx;
     margin-top: 200upx;
