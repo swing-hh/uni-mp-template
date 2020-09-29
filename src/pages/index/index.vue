@@ -1,11 +1,11 @@
 <template>
   <view class="content">
-    <image class="logo" :src="'../../static/logo.png'"></image>
+    <image class="logo" src="../../static/logo.png" mode />
     <button type="primary">页面主操作 primary</button>
     <button type="default">次要操作 default</button>
     <button type="error">111</button>
     <view>
-      <view v-for="(title, key) in titles" :key="key" class="title">{{ title }}</view>
+      <view v-for="(title, key) in titles" :key="key" class="title" data-a="1">{{ title }}</view>
     </view>
   </view>
 </template>

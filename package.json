@@ -24,10 +24,15 @@
     "info": "node node_modules/@dcloudio/vue-cli-plugin-uni/commands/info.js",
     "lint": "vue-cli-service lint"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint"
-    }
+  "pre-commit": [
+    "precommit-msg",
+    "lint-staged"
+  ],
+  "lint-staged": {
+    "*.{js,ts,vue}": [
+      "npm run lint",
+      "git add"
+    ]
   },
   "dependencies": {
     "@dcloudio/uni-app-plus": "^2.0.0-alpha-26420200309006",
