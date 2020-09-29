@@ -26,8 +26,14 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint"
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "dependencies": {
     "@dcloudio/uni-app-plus": "^2.0.0-alpha-26420200309006",
