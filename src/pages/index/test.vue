@@ -12,22 +12,16 @@
     <view v-if="isFirst" class="change-reasons">
       <view class="change-title">转班原因</view>
       <view class="reason-list">
-        <view
-          v-for="(item, index) in reasonList"
-          :class="['reason-item', item.active ? 'active' : '']"
-          :key="index"
-          @click="chooseReason(index)"
-          >{{ item.description }}</view
-        >
+        <view v-for="(item, index) in reasonList" :class="['reason-item', item.active ? 'active' : '']" :key="index">{{
+          item.description
+        }}</view>
       </view>
       <!-- 默认最后一项是其他 -->
       <view class="reason-area" v-show="reasonList[reasonList.length - 1].active">
         <textarea
           class="other-reason"
-          @input="inputEvent"
           placeholder-class="feedPlaceholder"
           placeholder="请输入具体原因（100字内）"
-          disable-default-padding="true"
           :maxlength="maxLen"
           :value="userReason"
         />
