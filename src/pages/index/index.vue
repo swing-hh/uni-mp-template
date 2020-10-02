@@ -21,17 +21,17 @@
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
+import Req from '@/utils/req'
+import Api from '@/utils/api'
 
 @Component({})
 export default class Index extends Vue {
   titles: string[] = ['title1', 'title2']
-  $req: any
-  $api: any
 
   async onLoad(options: any) {
-    const data: any = await this.$req.get('https://yyrd-docker.suanshubang.com/handwrite/course/home', {})
+    const data: any = await Req.get('https://yyrd-docker.suanshubang.com/handwrite/course/home', {})
     console.log(data)
-    const data1: any = await this.$req.post(this.$api.common.switch, {})
+    const data1: any = await Req.post(Api.common.switch, {})
   }
 }
 </script>
