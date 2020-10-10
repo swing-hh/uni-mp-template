@@ -28,7 +28,9 @@ if (
         }
       }
     ])
-  } catch (e) {}
+  } catch (e) {
+    console.log()
+  }
 }
 
 process.UNI_LIBRARIES = process.UNI_LIBRARIES || ['@dcloudio/uni-ui']

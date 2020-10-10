@@ -1,23 +1,16 @@
 # uni-mp-template
 
-## Project setup
+## 下载依赖
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### 本地开发
 ```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
+npm run dev:mp-weixin
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
-
-解决eslint末尾加空行的问题
-https://www.cnblogs.com/yummylucky/p/11217168.html
+### 打包发布
+```
+npm run build:mp-weixin
+```
