@@ -28,7 +28,7 @@ import Api from '@/utils/api'
 export default class Index extends Vue {
   titles: string[] = ['title1', 'title2']
 
-  async onLoad(options: any) {
+  async onLoad() {
     const data: any = await Req.get('https://yyrd-docker.suanshubang.com/handwrite/course/home', {})
     console.log(data)
     const data1: any = await Req.post(Api.common.switch, {})
