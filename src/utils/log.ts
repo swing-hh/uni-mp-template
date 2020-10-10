@@ -1,4 +1,4 @@
-export default function log(obj = {}) {
+export default function log(obj: any = {}) {
   const defaultObj = {
     wxUser: uni.getStorageSync('wx_user'),
     wxUid: uni.getStorageSync('wx_uid'),

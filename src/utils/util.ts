@@ -23,7 +23,6 @@ function formatMS(time: number) {
   if (typeof time !== 'number' || time < 0) {
     return time
   }
-
   const minute = time / 60
   time = time % 60
   const second = time
@@ -94,7 +93,7 @@ function debounce(fn: Function, delay: number = 200) {
  * @param w 图片的宽度
  *
  */
-function imageAdapter(url, w) {
+function imageAdapter(url: string, w: string) {
   const start = url.indexOf('thumbnail/')
   if (start > 0) {
     const end = url.lastIndexOf('x') + 1
@@ -109,7 +108,7 @@ function imageAdapter(url, w) {
  * @param 存储name， sting类型
  * @duration 有效周期
  */
-function checkValidity(param, duration) {
+function checkValidity(param: string, duration: number) {
   return !uni.getStorageSync(param) || Date.now() - uni.getStorageSync(param) > duration
 }
 
@@ -120,7 +119,7 @@ function getTimestamp() {
   return new Date().getTime()
 }
 
-function toNum(a) {
+function toNum(a: string) {
   const b = a.toString()
   // 也可以这样写 var c=a.split(/\./);
   const c = b.split('.')
@@ -137,7 +136,7 @@ function toNum(a) {
 /**
  * 判断a,b版本号大小，a>b 返回true，否则返回false
  */
-function cprVersion(a, b) {
+function cprVersion(a: string, b: string) {
   const _a = toNum(a)
   const _b = toNum(b)
   return _a > _b
@@ -146,7 +145,7 @@ function cprVersion(a, b) {
 /**
  * 根据url地址获取parame参数对象
  */
-function urlParamHash(url) {
+function urlParamHash(url: string) {
   const params = {}
   let h
   const hash = url.slice(url.indexOf('?') + 1).split('&')
@@ -165,7 +164,7 @@ function urlParamHash(url) {
  * const { model } = uni.getSystemInfoSync();
  * iphoneAdaper(mode);
  */
-function iphoneAdaper(mode) {
+function iphoneAdaper(mode: string) {
   let isIphoneAdaper = false
   const iphoneAdaper = ['iPhone X', 'iPhone XR', 'iPhone XS', 'iPhone XS Max', 'iPhone 11', 'iPhone 11 Pro', 'iPhone 11 Pro Max']
   for (let i = 0; i < iphoneAdaper.length; i++) {
