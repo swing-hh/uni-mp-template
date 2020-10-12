@@ -17,8 +17,8 @@ class Req {
     return await this.req('POST', url, parame)
   }
 
-  req(method: any, url: string, parame: any) {
-    if (url.indexOf('http') < -1) url = BaseUrl.xzDomain + url
+  req(method: any, url: string, parame: any = {}) {
+    if (url.indexOf('http') < 0) url = BaseUrl.xzDomain + url
 
     return new Promise((resolve, reject) => {
       uni.request({

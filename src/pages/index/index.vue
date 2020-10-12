@@ -1,55 +1,74 @@
 <template>
   <view class="content">
-    <image class="logo" src="../../static/logo.png" mode />
-    <button type="primary">页面主操作 primary</button>
-    <button type="default">次要操作 default</button>
-    <button type="error">111</button>
-    <view>
-      <view v-for="(title, key) in titles" :key="key" class="title" data-a="1">{{ title }}</view>
-      <view
-        :class="['class-item', item.active ? 'active' : '']"
-        v-for="(item, index) in classList"
-        :key="index"
-        @click="chooseClass(index)"
+    <uni-swiper-dot :info="bannerList" :current="swiper.current" field="content" :mode="swiper.mode" :dotsStyles="swiper.dotsStyles">
+      <swiper
+        :class="['swiper']"
+        @change="change"
+        :autoplay="swiper.autoplay"
+        :interval="swiper.interval"
+        :duration="swiper.duration"
+        :circular="swiper.circular"
       >
-        <view class="class-title">{{ item.skuName }}</view>
-        <pview class="class-num">共{{ item.lessonCnt }}节</pview>
-      </view>
-    </view>
+        <swiper-item v-for="(item, index) in bannerList" :key="index" id="index_banner_show" :data-index="index">
+          <view class="swiper-item" id="index_banner_click" @click="setLastfrom('xsybcd', item.outUrl, item.type)">
+            <image mode="scaleToFill" class="swiper-image" :src="item.coverUrl" @error="imageError" />
+          </view>
+        </swiper-item>
+      </swiper>
+    </uni-swiper-dot>
   </view>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
+import uniSwiperDot from '@/components/uni-swiper-dot/uni-swiper-dot.vue'
 import Req from '@/utils/req'
 import Api from '@/utils/api'
 
-@Component({})
+@Component({ name: 'index', components: { uniSwiperDot } })
 export default class Index extends Vue {
-  titles: string[] = ['title1', 'title2']
+  bannerList: string[] = []
+  swiper: any = {
+    current: 0,
+    mode: 'round',
+    dotsStyles: {
+      width: 4,
+      height: 4,
+      bottom: 6,
+      color: 'red',
+      backgroundColor: 'rgba(255, 255, 255, 0.3)',
+      border: 'none',
+      selectedBackgroundColor: '#fff',
+      selectedBorder: 'none'
+    },
+    autoplay: true,
+    interval: 3000,
+    duration: 500,
+    circular: true
+  }
 
   async onLoad() {
-    const data: any = await Req.get('https://yyrd-docker.suanshubang.com/handwrite/course/home', {})
-    console.log(data)
-    const data1: any = await Req.post(Api.common.switch, {})
-    console.log(data1)
+    const data: any = await Req.get(Api.course.list, {})
+    this.bannerList = data.bannerList
+  }
+
+  change(e) {
+    this.swiper.current = e.detail.current
   }
 }
 </script>
 
 <style type="text/scss" lang="scss" scoped>
 .content {
-  text-align: center;
-  height: 400upx;
-  bottom: 100upx;
-  button {
-    width: 500upx;
-    margin-bottom: 50upx;
-  }
-  .logo {
-    height: 200upx;
-    width: 200upx;
-    margin-top: 200upx;
+  .swiper {
+    height: 270upx;
+    margin-top: 10upx;
+    .swiper-image {
+      width: 686upx;
+      height: 270upx;
+      margin: 0 auto;
+      border-radius: 32upx;
+    }
   }
 }
 </style>
