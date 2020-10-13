@@ -7,6 +7,8 @@
  */
 
 import BaseUrl from '../config/baseUrl'
+import { showToast } from '@/utils/util'
+import { getzybuss } from '@/components/login'
 
 class Req {
   async get(url: string, parame: any) {
@@ -27,27 +29,20 @@ class Req {
         data: parame,
         timeout: 30000,
         header: {
+          Cookie: 'ZYBUSS=' + getzybuss(),
           'content-type': 'application/x-www-form-urlencoded'
         },
         success(res: any) {
           // 错误码
           if (res.data.errNo) {
-            uni.showToast({
-              title: res.data.errstr,
-              duration: 2000,
-              icon: 'none'
-            })
+            showToast(res.data.errstr)
             reject(new Error(res.data.errstr))
           } else {
             resolve(res.data.data)
           }
         },
         fail() {
-          uni.showToast({
-            title: '网络异常，请检查网络',
-            duration: 2000,
-            icon: 'none'
-          })
+          showToast('网络异常，请检查网络')
         }
       })
     })

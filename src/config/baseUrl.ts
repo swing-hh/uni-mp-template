@@ -3,7 +3,7 @@
  */
 
 const baseUrl: any = {
-  xzDomain: 'https://yyrd-docker.suanshubang.com'
+  xzDomain: 'http://ss1-docker.suanshubang.com'
 }
 
 export default baseUrl
