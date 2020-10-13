@@ -1,11 +1,11 @@
 {
-  "tabWidth": 2,
+  "tabWidth": 4,
   "semi": false,
   "singleQuote": true,
   "trailingComma": "none",
   "arrowParens": "avoid",
   "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
   "vetur.format.defaultFormatter.js": "vscode-typescript",
-  "printWidth": 140,
+  "printWidth": 160,
   "useTabs": false
 }
