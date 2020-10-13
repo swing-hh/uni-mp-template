@@ -11,7 +11,7 @@
     <uni-swiper-dot :info="bannerList" :current="swiper.current" field="content" :mode="swiper.mode" :dotsStyles="swiper.dotsStyles">
       <swiper :class="swiper" @change="change" :autoplay="swiper.autoplay" :interval="swiper.interval" :duration="swiper.duration" :circular="swiper.circular">
         <swiper-item v-for="(item, index) in bannerList" :key="index" id="index_banner_show" :data-index="index">
-          <view class="swiper_item" id="index_banner_click" @click="setLastfrom('xsybcd', item.outUrl, item.type)">
+          <view class="swiper_item" id="index_banner_click" @click="gotoBannerDetail('xsybcd', item.outUrl)">
             <image mode="scaleToFill" class="swiper_image" :src="item.coverUrl" @error="imageError" />
           </view>
         </swiper-item>
@@ -23,7 +23,7 @@
       <view class="recommend_in">
         <text class="recommend_in_text bold">推荐课程</text>
       </view>
-      <view class="recommend_in" @click="gotoClassKnow(0)" id="index_howtoclass_click">
+      <view class="recommend_in" @click="gotoClassKnow" id="index_howtoclass_click">
         <text class="ecommend_in_how_to_class bold">如何上课</text>
         <image mode="scaleToFill" class="recommend_in_goto_class" src="/static/logo.png" @error="imageError" />
       </view>
@@ -123,8 +123,10 @@
 </template>
 
 <script lang="ts">
+const app: any = getApp()
 import { Vue, Component } from 'vue-property-decorator'
 import uniSwiperDot from '@/components/uni-swiper-dot/uni-swiper-dot.vue'
+import { getTimestamp } from '@/utils/util'
 import Req from '@/utils/req'
 import Api from '@/utils/api'
 
@@ -153,7 +155,7 @@ export default class Index extends Vue {
     duration: 500,
     circular: true
   }
-  showGuideApp: boolean = true
+  showGuideApp: boolean = false
   btnText: object = {
     1: '限时免费',
     2: '了解课程',
@@ -184,31 +186,50 @@ export default class Index extends Vue {
   }
 
   async onLoad() {
+    this.tipShowFun()
     const data: any = await Req.get(Api.course.list, {})
     this.bannerList = data.bannerList
     this.list = data.list
   }
 
+  // 顶部tip是否显示
+  tipShowFun() {
+    this.showGuideApp = !!(getTimestamp() - uni.getStorageSync('home_guide_app') > 1000 * 60 * 60 * 24 * 7)
+  }
+
+  // 关闭tip
+  closeGuide() {
+    uni.setStorageSync('home_guide_app', getTimestamp())
+    this.showGuideApp = false
+  }
+
+  // swiper切换，更新index
   change(e: any) {
     this.swiper.current = e.detail.current
   }
 
-  closeGuide() {
-    uni.setStorageSync('home_guide_app', Date.now())
-    this.showGuideApp = false
+  // banner跳转
+  gotoBannerDetail(lastfrom: string, url: string) {
+    app.globalData.lastfrom = lastfrom
+    uni.navigateTo({
+      url: url
+    })
   }
+
+  // 跳转上课须知
+  gotoClassKnow() {
+    uni.navigateTo({
+      url: ''
+    })
+  }
+
+  gotoDetailType() {}
+
+  hasTeacher() {}
 
   imageError() {
     console.error('Image Error')
   }
-
-  gotoClassKnow(number: number = 0) {
-    console.log(number)
-  }
-
-  hasTeacher() {}
-
-  gotoDetailType() {}
 }
 </script>
 
