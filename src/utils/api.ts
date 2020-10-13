@@ -1,7 +1,7 @@
 /**
  * @name api统一管理
  * @example
- *     this.$req.post('https://yyrd-docker.suanshubang.com' + this.$api.common.switch, {})
+ *     Req.post(Api.common.switch, {})
  */
 const Api: any = {
   common: {
