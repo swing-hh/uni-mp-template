@@ -83,7 +83,7 @@ function debounce(fn: Function, delay: number = 200) {
       fn.apply(context, args)
     }, delay)
   }
-  return fn
+  return fn1
 }
 
 /**

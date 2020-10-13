@@ -47,9 +47,7 @@
       :style="{ 'background-color': dotsStyles.backgroundColor, bottom: '0' }"
       class="uni-swiper__dots-box uni-swiper__dots-nav"
     >
-      <text :style="{ color: dotsStyles.color }" class="uni-swiper__dots-nav-item">{{
-        current + 1 + '/' + info.length + ' ' + info[current][field]
-      }}</text>
+      <text :style="{ color: dotsStyles.color }" class="uni-swiper__dots-nav-item">{{ current + 1 + '/' + info.length + ' ' + info[current][field] }}</text>
     </view>
     <view v-if="mode === 'indexes'" key="indexes" :style="{ bottom: dots.bottom + 'px' }" class="uni-swiper__dots-box">
       <view
