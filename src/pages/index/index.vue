@@ -8,7 +8,7 @@
     </view>
 
     <!--顶部轮播图-->
-    <uni-swiper-dot :info="bannerList" :current="swiper.current" field="content" :mode="swiper.mode" :dotsStyles="swiper.dotsStyles">
+    <swiper-dot :info="bannerList" :current="swiper.current" field="content" :mode="swiper.mode" :dotsStyles="swiper.dotsStyles">
       <swiper :class="swiper" @change="change" :autoplay="swiper.autoplay" :interval="swiper.interval" :duration="swiper.duration" :circular="swiper.circular">
         <swiper-item v-for="(item, index) in bannerList" :key="index" id="index_banner_show" :data-index="index">
           <view class="swiper_item" id="index_banner_click" @click="gotoBannerDetail('xsybcd', item.outUrl)">
@@ -16,7 +16,7 @@
           </view>
         </swiper-item>
       </swiper>
-    </uni-swiper-dot>
+    </swiper-dot>
 
     <!--推荐课程-->
     <view class="recommend">
@@ -125,14 +125,14 @@
 <script lang="ts">
 const app: any = getApp()
 import { Vue, Component } from 'vue-property-decorator'
-import uniSwiperDot from '@/components/uni-swiper-dot/uni-swiper-dot.vue'
+import swiperDot from '@/components/swiper-dot/swiper-dot.vue'
 import { getTimestamp } from '@/utils/util'
 import Req from '@/utils/req'
 import Api from '@/utils/api'
 
 @Component({
   name: 'index',
-  components: { uniSwiperDot }
+  components: { swiperDot }
 })
 export default class Index extends Vue {
   bannerList: string[] = []

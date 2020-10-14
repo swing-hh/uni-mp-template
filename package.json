@@ -62,6 +62,7 @@
     "@dcloudio/uni-helper-json": "^1.0.6",
     "@dcloudio/uni-migration": "^2.0.0-alpha-26420200309006",
     "@dcloudio/uni-template-compiler": "^2.0.0-alpha-26420200309006",
+    "@dcloudio/uni-ui": "^1.2.5",
     "@dcloudio/vue-cli-plugin-hbuilderx": "^2.0.0-alpha-26420200309006",
     "@dcloudio/vue-cli-plugin-uni-optimize": "^2.0.0-alpha-26420200309006",
     "@dcloudio/webpack-uni-mp-loader": "^2.0.0-alpha-26420200309006",

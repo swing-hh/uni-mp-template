@@ -23,6 +23,7 @@
         </view>
       </view>
     </view>
+    <dialog-center></dialog-center>
   </view>
 </template>
 
@@ -30,12 +31,13 @@
 import { Vue, Component } from 'vue-property-decorator'
 import { showToast } from '@/utils/util'
 import { getWxUser, login, loginbycode, getzybuss, layout } from '@/components/login/index'
+import dialogCenter from '@/components/dialog/center.vue'
 import Req from '@/utils/req'
 import Api from '@/utils/api'
 
 @Component({
   name: 'index',
-  components: {}
+  components: { dialogCenter }
 })
 export default class Index extends Vue {
   zybuss: string = ''
