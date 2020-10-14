@@ -23,7 +23,7 @@
         </view>
       </view>
     </view>
-    <dialog-center></dialog-center>
+    <dialog-center ref="loyoutDialog"></dialog-center>
   </view>
 </template>
 
@@ -40,6 +40,10 @@ import Api from '@/utils/api'
   components: { dialogCenter }
 })
 export default class Index extends Vue {
+  $refs!: {
+    loyoutDialog: any
+  }
+
   zybuss: string = ''
   headPortrait: string = ''
   formatNickName: string = ''
@@ -67,6 +71,9 @@ export default class Index extends Vue {
     if (this.zybuss) {
       this.getUserInfo() // 获取用户信息
     }
+    setTimeout(() => {
+      this.$refs.loyoutDialog.open()
+    }, 100)
   }
 
   // 拿到手机号登陆
