@@ -23,7 +23,11 @@
         </view>
       </view>
     </view>
-    <dialog-center ref="loyoutDialog"></dialog-center>
+    <dialog-center ref="loyoutDialog" title="确定要退出吗？" @confirm="loyoutDialogConfirm" confirmBtnText="退出">
+      <template>
+        <view>111</view>
+      </template>
+    </dialog-center>
   </view>
 </template>
 
@@ -71,9 +75,6 @@ export default class Index extends Vue {
     if (this.zybuss) {
       this.getUserInfo() // 获取用户信息
     }
-    setTimeout(() => {
-      this.$refs.loyoutDialog.open()
-    }, 100)
   }
 
   // 拿到手机号登陆
@@ -100,6 +101,10 @@ export default class Index extends Vue {
 
   // 退出
   myLayout() {
+    this.$refs.loyoutDialog.open()
+  }
+
+  loyoutDialogConfirm() {
     layout()
     this.zybuss = ''
   }
