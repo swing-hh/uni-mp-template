@@ -6,15 +6,15 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
-import uniPopup from '@dcloudio/uni-ui/lib/uni-popup/uni-popup.vue'
+import { Vue, Component } from 'vue-property-decorator';
+import uniPopup from '@dcloudio/uni-ui/lib/uni-popup/uni-popup.vue';
 
 @Component({
   name: 'dialogCenter',
   components: { uniPopup }
 })
 export default class Index extends Vue {
-  title: string = ''
+  title: string = '';
   open() {}
 }
 </script>

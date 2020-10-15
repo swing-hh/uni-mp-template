@@ -123,20 +123,20 @@
 </template>
 
 <script lang="ts">
-const app: any = getApp()
-import { Vue, Component } from 'vue-property-decorator'
-import swiperDot from '@/components/swiper-dot/swiper-dot.vue'
-import { getTimestamp } from '@/utils/util'
-import Req from '@/utils/req'
-import Api from '@/utils/api'
+const app: any = getApp();
+import { Vue, Component } from 'vue-property-decorator';
+import swiperDot from '@/components/swiper-dot/swiper-dot.vue';
+import { getTimestamp } from '@/utils/util';
+import Req from '@/utils/req';
+import Api from '@/utils/api';
 
 @Component({
   name: 'index',
   components: { swiperDot }
 })
 export default class Index extends Vue {
-  bannerList: string[] = []
-  list: any = []
+  bannerList: string[] = [];
+  list: any = [];
   swiper: any = {
     current: 0,
     mode: 'round',
@@ -154,8 +154,8 @@ export default class Index extends Vue {
     interval: 3000,
     duration: 500,
     circular: true
-  }
-  showGuideApp: boolean = false
+  };
+  showGuideApp: boolean = false;
   btnText: object = {
     1: '限时免费',
     2: '了解课程',
@@ -169,7 +169,7 @@ export default class Index extends Vue {
     10: '去学习', // 过期可学习,符合二次激活条件
     11: '未开课', // 赠课未开课
     12: '已失效' // 赠课已失效
-  }
+  };
   btnStatus: object = {
     1: 'orange',
     2: 'blue',
@@ -183,44 +183,45 @@ export default class Index extends Vue {
     10: 'blue',
     11: 'gray',
     12: 'gray'
-  }
+  };
 
   async onLoad() {
-    this.tipShowFun()
-    const data: any = await Req.get(Api.course.list, {})
-    this.bannerList = data.bannerList
-    this.list = data.list
+    this.tipShowFun();
+    const data: any = await Req.get(Api.course.list, {});
+    this.bannerList = data.bannerList;
+    this.list = data.list;
   }
 
   // 顶部tip是否显示
   tipShowFun() {
-    this.showGuideApp = !!(getTimestamp() - uni.getStorageSync('home_guide_app') > 1000 * 60 * 60 * 24 * 7)
+    this.showGuideApp = !!(getTimestamp() - uni.getStorageSync('home_guide_app') > 1000 * 60 * 60 * 24 * 7);
+    return {};
   }
 
   // 关闭tip
   closeGuide() {
-    uni.setStorageSync('home_guide_app', getTimestamp())
-    this.showGuideApp = false
+    uni.setStorageSync('home_guide_app', getTimestamp());
+    this.showGuideApp = false;
   }
 
   // swiper切换，更新index
   change(e: any) {
-    this.swiper.current = e.detail.current
+    this.swiper.current = e.detail.current;
   }
 
   // banner跳转
   gotoBannerDetail(lastfrom: string, url: string) {
-    app.globalData.lastfrom = lastfrom
+    app.globalData.lastfrom = lastfrom;
     uni.navigateTo({
       url: url
-    })
+    });
   }
 
   // 跳转上课须知
   gotoClassKnow() {
     uni.navigateTo({
       url: ''
-    })
+    });
   }
 
   gotoDetailType() {}
@@ -228,7 +229,7 @@ export default class Index extends Vue {
   hasTeacher() {}
 
   imageError() {
-    console.error('Image Error')
+    console.error('Image Error');
   }
 }
 </script>

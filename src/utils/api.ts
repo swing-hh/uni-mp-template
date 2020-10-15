@@ -21,6 +21,6 @@ const Api: any = {
   my: {
     userInfo: '/handwrite/person/userinfo' // 个人信息
   }
-}
+};
 
-export default Api
+export default Api;

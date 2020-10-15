@@ -1,14 +1,14 @@
-import Req from '@/utils/req'
-import Api from '@/utils/api'
-import { appid } from '@/config/constant'
-import { showToast } from '@/utils/util'
+import Req from '@/utils/req';
+import Api from '@/utils/api';
+import { appid } from '@/config/constant';
+import { showToast } from '@/utils/util';
 
 /**
  * 获取wxuser
  * @return {string} 返回wxuser字符串
  */
 export function getWxUser(): string {
-  return uni.getStorageSync('wx_user') || ''
+  return uni.getStorageSync('wx_user') || '';
 }
 
 /**
@@ -21,11 +21,11 @@ export async function login(wx_user: string, encryptedData: string, iv: string) 
     wx_user: wx_user,
     encryptedData: encryptedData,
     iv: encodeURIComponent(iv)
-  }
-  const data: any = await Req.post(Api.login.login, param)
-  uni.setStorageSync('zybuss', data.zybuss)
-  uni.setStorageSync('wx_uid', data.wx_uid)
-  return data.zybuss
+  };
+  const data: any = await Req.post(Api.login.login, param);
+  uni.setStorageSync('zybuss', data.zybuss);
+  uni.setStorageSync('wx_uid', data.wx_uid);
+  return data.zybuss;
 }
 
 /**
@@ -33,11 +33,11 @@ export async function login(wx_user: string, encryptedData: string, iv: string) 
  * @return {string} 返回wxuser字符串
  */
 export async function loginbycode() {
-  const loginData: any = await uniLogin()
-  const data: any = await Req.post(Api.login.loginbycode, { appid: appid, code: loginData.code })
-  uni.setStorageSync('openid', data.openid)
-  uni.setStorageSync('wx_user', data.wx_user)
-  uni.setStorageSync('unionid', data.unionid)
+  const loginData: any = await uniLogin();
+  const data: any = await Req.post(Api.login.loginbycode, { appid: appid, code: loginData.code });
+  uni.setStorageSync('openid', data.openid);
+  uni.setStorageSync('wx_user', data.wx_user);
+  uni.setStorageSync('unionid', data.unionid);
 }
 
 // 小程序登陆
@@ -45,14 +45,14 @@ function uniLogin() {
   return new Promise((resolve, reject) => {
     uni.login({
       success(res) {
-        resolve(res)
+        resolve(res);
       },
       fail(res) {
-        showToast('微信服务失败')
-        reject(res)
+        showToast('微信服务失败');
+        reject(res);
       }
-    })
-  })
+    });
+  });
 }
 
 /**
@@ -60,9 +60,9 @@ function uniLogin() {
  * @return {string} 返回zybuss字符串
  */
 export function getzybuss() {
-  return uni.getStorageSync('zybuss')
+  return uni.getStorageSync('zybuss');
 }
 
 export function layout() {
-  uni.removeStorageSync('zybuss')
+  uni.removeStorageSync('zybuss');
 }

@@ -3,7 +3,7 @@
  * @return {number} 返回时间戳ms
  */
 export function getTimestamp(): number {
-  return new Date().valueOf()
+  return new Date().valueOf();
 }
 
 /**
@@ -15,5 +15,5 @@ export function showToast(str: string) {
     title: str,
     duration: 2000,
     icon: 'none'
-  })
+  });
 }

@@ -75,7 +75,7 @@ export default {
     info: {
       type: Array,
       default() {
-        return []
+        return [];
       }
     },
     current: {
@@ -85,7 +85,7 @@ export default {
     dotsStyles: {
       type: Object,
       default() {
-        return {}
+        return {};
       }
     },
     // 类型 ：default(默认) indexes long nav
@@ -111,30 +111,30 @@ export default {
         selectedBackgroundColor: '#333',
         selectedBorder: '1px rgba(0, 0, 0, .9) solid'
       }
-    }
+    };
   },
   watch: {
     dotsStyles() {
-      this.dots = Object.assign(this.dots, this.dotsStyles)
+      this.dots = Object.assign(this.dots, this.dotsStyles);
     },
     mode(newVal) {
       if (newVal === 'indexes') {
-        this.dots.width = 20
-        this.dots.height = 20
+        this.dots.width = 20;
+        this.dots.height = 20;
       } else {
-        this.dots.width = 8
-        this.dots.height = 8
+        this.dots.width = 8;
+        this.dots.height = 8;
       }
     }
   },
   created() {
     if (this.mode === 'indexes') {
-      this.dots.width = 20
-      this.dots.height = 20
+      this.dots.width = 20;
+      this.dots.height = 20;
     }
-    this.dots = Object.assign(this.dots, this.dotsStyles)
+    this.dots = Object.assign(this.dots, this.dotsStyles);
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

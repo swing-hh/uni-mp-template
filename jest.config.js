@@ -9,4 +9,4 @@ module.exports = {
   rootDir: __dirname,
   testMatch: ['<rootDir>/src/**/*test.[jt]s?(x)'],
   testPathIgnorePatterns: ['/node_modules/']
-}
+};

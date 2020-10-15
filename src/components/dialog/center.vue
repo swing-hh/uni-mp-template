@@ -16,8 +16,8 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator'
-import uniPopup from '@dcloudio/uni-ui/lib/uni-popup/uni-popup.vue'
+import { Vue, Component, Prop } from 'vue-property-decorator';
+import uniPopup from '@dcloudio/uni-ui/lib/uni-popup/uni-popup.vue';
 
 @Component({
   name: 'DialogCenter',
@@ -26,35 +26,35 @@ import uniPopup from '@dcloudio/uni-ui/lib/uni-popup/uni-popup.vue'
 export default class DialogCenter extends Vue {
   // ts无法识别popup的类型，必须在前边手动声明一下
   $refs!: {
-    popup: any
-  }
+    popup: any;
+  };
 
   // 标题
-  @Prop({ default: '' }) title!: string
+  @Prop({ default: '' }) title!: string;
   // 确定按钮文案
-  @Prop({ default: '确定' }) confirmBtnText!: string
+  @Prop({ default: '确定' }) confirmBtnText!: string;
   // 点击蒙层是否关闭
-  @Prop({ default: true }) maskClick?: boolean
+  @Prop({ default: true }) maskClick?: boolean;
   // 是否为单个按钮
-  @Prop({ default: false }) singleBtn?: boolean
+  @Prop({ default: false }) singleBtn?: boolean;
   // 取消按钮文案
-  @Prop({ default: '取消' }) cancelBtnText?: string
+  @Prop({ default: '取消' }) cancelBtnText?: string;
   // 是否显示关闭按钮
-  @Prop({ default: true }) showCloseBtn?: boolean
+  @Prop({ default: true }) showCloseBtn?: boolean;
   // 内容文案
-  @Prop({ default: '' }) desc?: string
+  @Prop({ default: '' }) desc?: string;
 
   open() {
-    this.$refs.popup.open()
+    this.$refs.popup.open();
   }
 
   close() {
-    this.$refs.popup.close()
+    this.$refs.popup.close();
   }
 
   confirm() {
-    this.$refs.popup.close()
-    this.$emit('confirm')
+    this.$refs.popup.close();
+    this.$emit('confirm');
   }
 }
 </script>

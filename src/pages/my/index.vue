@@ -32,12 +32,12 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
-import { showToast } from '@/utils/util'
-import { getWxUser, login, loginbycode, getzybuss, layout } from '@/components/login/index'
-import dialogCenter from '@/components/dialog/center.vue'
-import Req from '@/utils/req'
-import Api from '@/utils/api'
+import { Vue, Component } from 'vue-property-decorator';
+import { showToast } from '@/utils/util';
+import { getWxUser, login, loginbycode, getzybuss, layout } from '@/components/login/index';
+import dialogCenter from '@/components/dialog/center.vue';
+import Req from '@/utils/req';
+import Api from '@/utils/api';
 
 @Component({
   name: 'index',
@@ -45,68 +45,68 @@ import Api from '@/utils/api'
 })
 export default class Index extends Vue {
   $refs!: {
-    loyoutDialog: any
-  }
+    loyoutDialog: any;
+  };
 
-  zybuss: string = ''
-  headPortrait: string = ''
-  formatNickName: string = ''
-  phone: string = ''
+  zybuss: string = '';
+  headPortrait: string = '';
+  formatNickName: string = '';
+  phone: string = '';
 
   // 判断是否为刘海屏
   get hasBang() {
-    let has: boolean = false
-    const { statusBarHeight = 20 } = uni.getSystemInfoSync()
+    let has: boolean = false;
+    const { statusBarHeight = 20 } = uni.getSystemInfoSync();
     // 刘海屏 statusBarHeight 44
     if (statusBarHeight > 40) {
-      has = true
+      has = true;
     }
-    return has
+    return has;
   }
 
   // 判断头部使用图片
   get topSrc() {
-    return this.hasBang ? 'https://zyb-yayapub-1253445850.file.myqcloud.com/fe/topX.png' : 'https://zyb-yayapub-1253445850.file.myqcloud.com/fe/top.png'
+    return this.hasBang ? 'https://zyb-yayapub-1253445850.file.myqcloud.com/fe/topX.png' : 'https://zyb-yayapub-1253445850.file.myqcloud.com/fe/top.png';
   }
 
   async onLoad() {
-    this.zybuss = getzybuss()
-    await loginbycode()
+    this.zybuss = getzybuss();
+    await loginbycode();
     if (this.zybuss) {
-      this.getUserInfo() // 获取用户信息
+      this.getUserInfo(); // 获取用户信息
     }
   }
 
   // 拿到手机号登陆
   async getPhoneNumber(e) {
     if (e.detail.errMsg && e.detail.encryptedData && e.detail.iv) {
-      const wxUser: string = getWxUser()
-      const zybuss: string = await login(wxUser, e.detail.encryptedData, e.detail.iv)
+      const wxUser: string = getWxUser();
+      const zybuss: string = await login(wxUser, e.detail.encryptedData, e.detail.iv);
       if (zybuss) {
-        this.zybuss = zybuss
-        this.getUserInfo()
+        this.zybuss = zybuss;
+        this.getUserInfo();
       }
     } else {
-      showToast('您已拒绝授权，请重新授权')
+      showToast('您已拒绝授权，请重新授权');
     }
   }
 
   // 获取登陆后的信息
   async getUserInfo() {
-    const userInfoData: any = await Req.post(Api.my.userInfo, {})
-    this.headPortrait = userInfoData.avatarkid
-    this.formatNickName = userInfoData.nickName
-    this.phone = userInfoData.phone
+    const userInfoData: any = await Req.post(Api.my.userInfo, {});
+    this.headPortrait = userInfoData.avatarkid;
+    this.formatNickName = userInfoData.nickName;
+    this.phone = userInfoData.phone;
   }
 
   // 退出
   myLayout() {
-    this.$refs.loyoutDialog.open()
+    this.$refs.loyoutDialog.open();
   }
 
   loyoutDialogConfirm() {
-    layout()
-    this.zybuss = ''
+    layout();
+    this.zybuss = '';
   }
 
   imageError() {}
