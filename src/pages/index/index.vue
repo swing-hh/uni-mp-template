@@ -54,8 +54,8 @@
               ]"
               v-else
             >
-              <image mode="scaleToFill" class="courseIcon" src="/static/currect.png" @error="imageError" v-if="[1, 2].includes(item.status)" />
-              <image mode="scaleToFill" class="courseIcon" src="/static/time.png" @error="imageError" v-if="[3, 4, 5, 6, 7, 8, 10].includes(item.status)" />
+              <image mode="scaleToFill" class="courseIcon" src="/static/logo.png" @error="imageError" v-if="[1, 2].includes(item.status)" />
+              <image mode="scaleToFill" class="courseIcon" src="/static/logo.png" @error="imageError" v-if="[3, 4, 5, 6, 7, 8, 10].includes(item.status)" />
               <text
                 class="courseTips courseTipsBlue"
                 v-if="item.type === 1 && item.status === 9 && (!hasTeacher(item.sessionFrom) || (hasTeacher(item.sessionFrom) && item.sendTchCode === 1))"
@@ -131,7 +131,7 @@ import Req from '@/utils/req';
 import Api from '@/utils/api';
 
 @Component({
-  name: 'index',
+  name: 'Index',
   components: { swiperDot }
 })
 export default class Index extends Vue {

@@ -40,10 +40,10 @@ import Req from '@/utils/req';
 import Api from '@/utils/api';
 
 @Component({
-  name: 'index',
+  name: 'My',
   components: { dialogCenter }
 })
-export default class Index extends Vue {
+export default class My extends Vue {
   $refs!: {
     loyoutDialog: any;
   };
