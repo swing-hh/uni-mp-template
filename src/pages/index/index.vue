@@ -192,6 +192,14 @@ export default class Index extends Vue {
     this.list = data.list;
   }
 
+  onShareAppMessage() {
+    return {
+      title: '111',
+      path: '',
+      imageUrl: ''
+    };
+  }
+
   // 顶部tip是否显示
   tipShowFun() {
     this.showGuideApp = !!(getTimestamp() - uni.getStorageSync('home_guide_app') > 1000 * 60 * 60 * 24 * 7);
