@@ -119,6 +119,9 @@
         </view>
       </view>
     </view>
+
+    <!--回到顶部-->
+    <back-top :isShow="isShow"></back-top>
   </view>
 </template>
 
@@ -126,16 +129,19 @@
 const app: any = getApp();
 import { Vue, Component } from 'vue-property-decorator';
 import swiperDot from '@/components/swiper-dot/swiper-dot.vue';
+import backTop from '@/components/backTop/index.vue';
 import { getTimestamp } from '@/utils/util';
 import Req from '@/utils/req';
 import Api from '@/utils/api';
 
 @Component({
   name: 'Index',
-  components: { swiperDot }
+  components: { swiperDot, backTop }
 })
 export default class Index extends Vue {
+  isShow: boolean = false;
   bannerList: string[] = [];
+  scrollTop: boolean = true; // 控制滚动事件
   list: any = [];
   swiper: any = {
     current: 0,
@@ -190,6 +196,16 @@ export default class Index extends Vue {
     const data: any = await Req.get(Api.course.list, {});
     this.bannerList = data.bannerList;
     this.list = data.list;
+  }
+
+  onPageScroll(e: any) {
+    if (this.scrollTop && e.scrollTop > 600) {
+      this.isShow = true;
+      this.scrollTop = false;
+    } else if (!this.scrollTop && e.scrollTop <= 600) {
+      this.isShow = false;
+      this.scrollTop = true;
+    }
   }
 
   onShareAppMessage() {

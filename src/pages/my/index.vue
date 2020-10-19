@@ -23,11 +23,7 @@
         </view>
       </view>
     </view>
-    <dialog-center ref="loyoutDialog" title="确定要退出吗？" @confirm="loyoutDialogConfirm" confirmBtnText="退出">
-      <template>
-        <view>111</view>
-      </template>
-    </dialog-center>
+    <dialog-center ref="loyoutDialog" title="确定要退出吗？" @confirm="loyoutDialogConfirm" confirmBtnText="退出"> </dialog-center>
   </view>
 </template>
 
