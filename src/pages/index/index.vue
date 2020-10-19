@@ -331,6 +331,7 @@ export default class Index extends Vue {
       border-radius: 24upx;
       margin-bottom: 31upx;
       box-shadow: 0 10upx 40upx rgba(0, 0, 0, 0.08);
+      overflow: hidden;
       .activeBtn {
         position: absolute;
         width: 100%;
