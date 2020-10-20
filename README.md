@@ -1,6 +1,8 @@
 # uni-mp-template
 
-## 下载依赖
+## 项目使用
+
+### 下载依赖
 ```
 npm install
 ```
@@ -39,12 +41,19 @@ npm run build:mp-weixin
 
 - 完整的项目
 - [x] 使用typescript创建项目 
-- [ ] 学习睡觉
-- [ ] 学习打游戏
+- [x] 分包的添加
+- [*] 代码规范的统一
 
 - 项目组件
-- [x] 使用typescript创建项目 
-- [ ] 学习睡觉
-- [ ] 学习打游戏
+- [ ] titleBar
+- [ ] footerBar
+- [x] backTop
+- [x] 中间显示dialog
+- [ ] 底部显示dialog
+
+- mixins的使用
+- [x] 全局中使用
+- [ ] 页面中使用
+
 
 
