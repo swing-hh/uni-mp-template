@@ -42,7 +42,7 @@ npm run build:mp-weixin
 - 完整的项目
 - [x] 使用typescript创建项目 
 - [x] 分包的添加
-- [*] 代码规范的统一
+- [x] 代码规范的统一
 
 - 项目组件
 - [ ] titleBar
