@@ -1,7 +1,5 @@
 <template>
-  <view class="back_top" v-if="isShow" @click="gotoScrollTop">
-    <text>回到顶部</text>
-  </view>
+  <view class="back_top" @click="gotoScrollTop" v-if="isShow"> 回到顶部 </view>
 </template>
 
 <script lang="ts">
@@ -28,6 +26,7 @@ export default class BackTop extends Vue {
   height: 50upx;
   line-height: 50upx;
   position: fixed;
+  z-index: 100;
   right: 0;
   bottom: 120upx;
   background: #fff;
