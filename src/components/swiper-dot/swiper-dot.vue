@@ -70,7 +70,7 @@
 
 <script>
 export default {
-  name: 'UniSwiperDot',
+  name: 'uniSwiperDot',
   props: {
     info: {
       type: Array,

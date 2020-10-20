@@ -36,10 +36,10 @@ import Req from '@/utils/req';
 import Api from '@/utils/api';
 
 @Component({
-  name: 'My',
+  name: 'my',
   components: { dialogCenter }
 })
-export default class My extends Vue {
+export default class my extends Vue {
   $refs!: {
     loyoutDialog: any;
   };

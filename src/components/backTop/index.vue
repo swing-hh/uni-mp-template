@@ -6,9 +6,9 @@
 import { Vue, Component, Prop } from 'vue-property-decorator';
 
 @Component({
-  name: 'BackTop'
+  name: 'backTop'
 })
-export default class BackTop extends Vue {
+export default class backTop extends Vue {
   @Prop({ default: false }) isShow!: boolean;
 
   gotoScrollTop() {

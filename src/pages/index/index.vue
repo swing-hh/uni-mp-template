@@ -11,7 +11,7 @@
     <swiper-dot :info="bannerList" :current="swiper.current" field="content" :mode="swiper.mode" :dotsStyles="swiper.dotsStyles">
       <swiper :class="swiper" @change="change" :autoplay="swiper.autoplay" :interval="swiper.interval" :duration="swiper.duration" :circular="swiper.circular">
         <swiper-item v-for="(item, index) in bannerList" :key="index" id="index_banner_show" :data-index="index">
-          <view class="swiper_item" id="index_banner_click" @click="gotoBannerDetail('xsybcd', item.outUrl)">
+          <view class="swiper_item" id="index_banner_click" @click="gotoBannerDetail('xsybcd')">
             <image mode="scaleToFill" class="swiper_image" :src="item.coverUrl" @error="imageError" />
           </view>
         </swiper-item>
@@ -135,10 +135,10 @@ import Req from '@/utils/req';
 import Api from '@/utils/api';
 
 @Component({
-  name: 'Index',
+  name: 'index',
   components: { swiperDot, backTop }
 })
-export default class Index extends Vue {
+export default class index extends Vue {
   isShow: boolean = false;
   bannerList: string[] = [];
   scrollTop: boolean = true; // 控制滚动事件
@@ -234,10 +234,10 @@ export default class Index extends Vue {
   }
 
   // banner跳转
-  gotoBannerDetail(lastfrom: string, url: string) {
+  gotoBannerDetail(lastfrom: string) {
     app.globalData.lastfrom = lastfrom;
     uni.navigateTo({
-      url: url
+      url: '/pagesA/detail/detail'
     });
   }
 

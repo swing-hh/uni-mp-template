@@ -12,7 +12,28 @@
 				"navigationBarTitleText": "uni-app"
 			}
 		}
-	],
+  ],
+  "subPackages": [
+    {
+      "root": "pagesA",
+      "pages": [
+        {
+          "path": "detail/detail",
+          "style": {
+            "navigationBarTitleText": "上课须知"
+          }
+        }
+      ]
+    }
+  ],
+  "preloadRule": {
+    "pagesA/detail/detail": {
+      "network": "all",
+      "packages": [
+        "pagesA"
+      ]
+    }
+  },
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",

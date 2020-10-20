@@ -20,10 +20,10 @@ import { Vue, Component, Prop } from 'vue-property-decorator';
 import uniPopup from '@dcloudio/uni-ui/lib/uni-popup/uni-popup.vue';
 
 @Component({
-  name: 'DialogCenter',
+  name: 'dialogCenter',
   components: { uniPopup }
 })
-export default class DialogCenter extends Vue {
+export default class dialogCenter extends Vue {
   // ts无法识别popup的类型，必须在前边手动声明一下
   $refs!: {
     popup: any;
