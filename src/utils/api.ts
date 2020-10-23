@@ -7,6 +7,7 @@ const Api: any = {
   common: {
     switch: '/handwrite/init/configuration', // 服务基础配置开关接口
     audio: '/handwrite/submit/audio', // 上传音频
+    checksubscribe: '/handwrite/submit/checksubscribe', // 查看是否关注公众号
     picture: '/handwrite/submit/picture' // 图片上传
   },
   // 微信登录接口
