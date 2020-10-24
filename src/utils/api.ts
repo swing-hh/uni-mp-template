@@ -18,7 +18,8 @@ const Api: any = {
   },
   // 课前接口
   course: {
-    list: '/handwrite/course/home' // 首页
+    list: '/handwrite/course/home', // 首页
+    details: '/handwrite/course/details' // 课程详情页
   },
   // 个人中心
   my: {
