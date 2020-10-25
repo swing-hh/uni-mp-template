@@ -19,7 +19,8 @@ const Api: any = {
   // 课前接口
   course: {
     list: '/handwrite/course/home', // 首页
-    details: '/handwrite/course/details' // 课程详情页
+    details: '/handwrite/course/details', // 课程详情页
+    checklogin: '/handwrite/user/checklogin' // 校验是否登录，判断是否购买过体验课
   },
   // 个人中心
   my: {
