@@ -25,7 +25,8 @@ const Api: any = {
   // 个人中心
   my: {
     feedback: '/handwrite/person/feedback', // 意见反馈
-    userInfo: '/handwrite/person/userinfo' // 个人信息
+    userInfo: '/handwrite/person/userinfo', // 个人信息
+    profileupdate: '/handwrite/person/profileupdate' // 修改用户信息
   }
 };
 
