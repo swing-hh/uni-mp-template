@@ -26,7 +26,8 @@ const Api: any = {
   my: {
     feedback: '/handwrite/person/feedback', // 意见反馈
     userInfo: '/handwrite/person/userinfo', // 个人信息
-    profileupdate: '/handwrite/person/profileupdate' // 修改用户信息
+    profileupdate: '/handwrite/person/profileupdate', // 修改用户信息
+    avatarUpload: 'https://www.zuoyebang.com/mainstation/user/avatarUpload'
   }
 };
 
